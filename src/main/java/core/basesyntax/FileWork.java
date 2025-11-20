@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 
-public class FileWork {
+public class FileWork{
 
     public String[] readFromFile(String fileName) {
         try {
@@ -16,7 +16,7 @@ public class FileWork {
                     .filter(s -> s.startsWith("w"))
                     .toArray(String[]::new);
         } catch (IOException e) {
-            return new String[0];
+            throw new RuntimeException("Failed to read file: " + fileName, e);
         }
     }
 }
