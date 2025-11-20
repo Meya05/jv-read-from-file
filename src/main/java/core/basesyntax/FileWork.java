@@ -14,9 +14,11 @@ public class FileWork {
                     .map(String::toLowerCase)
                     .filter(s -> !s.isEmpty())
                     .filter(s -> s.startsWith("w"))
+                    .sorted()
                     .toArray(String[]::new);
         } catch (IOException e) {
             throw new RuntimeException("Failed to read file: " + fileName, e);
         }
     }
+
 }
