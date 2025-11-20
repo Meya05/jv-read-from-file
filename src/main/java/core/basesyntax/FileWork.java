@@ -12,11 +12,13 @@ public class FileWork {
             String content = Files.readString(Path.of(fileName));
             return Arrays.stream(content.split("[\\s\\p{Punct}]+"))
                     .map(String::toLowerCase)
-                    .filter(w -> w.startsWith("wi"))
+                    .filter(s -> !s.isEmpty())
+                    .filter(s -> s.startsWith("w"))
+                    .distinct()
                     .sorted()
                     .toArray(String[]::new);
         } catch (IOException e) {
-            throw new RuntimeException("Failed to read file: " + fileName, e);
+            return new String[0];
         }
     }
 }
