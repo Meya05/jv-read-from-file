@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 
-public class FileWork{
+public class FileWork {
 
     public String[] readFromFile(String fileName) {
         try {
